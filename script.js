@@ -7,8 +7,8 @@ function getComputerChoice() {
     1: "Paper",
     2: "Scissors",
   };
-  let ComputerChoice = numberToWords[randomNumber];
-  return ComputerChoice;
+  let computerChoice = numberToWords[randomNumber];
+  return computerChoice;
 }
 
 console.log("Computer Chose: " + getComputerChoice());
@@ -17,8 +17,10 @@ console.log("Computer Chose: " + getComputerChoice());
 
 function getHumanChoice() {
   let humanChoice = prompt("What is your choice? Rock, Paper or Scissors.");
-  humanChoice =
-    humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
+  if (humanChoice !== null) {
+    humanChoice =
+      humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
+  }
   if (
     humanChoice !== "Rock" &&
     humanChoice !== "Paper" &&
@@ -38,5 +40,7 @@ let computerScore = 0;
 let humanScore = 0;
 
 // Write the logic to play a single round
+
+function playRound(humanChoice, computerChoice) {}
 
 // Write the logic to play the entire game
