@@ -11,8 +11,6 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-//console.log("Computer Chose: " + getComputerChoice());
-
 // Write the logic to get the human choice
 
 function getHumanChoice() {
@@ -32,42 +30,53 @@ function getHumanChoice() {
   return humanChoice;
 }
 
-//console.log("Computer Chose: " + getHumanChoice());
-
-// Declare the players score variables
+//
 
 let computerScore = 0;
 let humanScore = 0;
 
-// Write the logic to play a single round
-
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice();
-
-console.log(
-  "Computer chose " +
-    computerSelection +
-    " and human chose " +
-    humanSelection +
-    "."
-);
+// Write the logic to play the entire game
 
 function playRound() {
+  const computerSelection = getComputerChoice();
+  const humanSelection = getHumanChoice();
+
+  console.log(
+    "Computer chose " +
+      computerSelection +
+      " and human chose " +
+      humanSelection +
+      "."
+  );
+
   if (computerSelection === humanSelection) {
-    console.log("The round ended in a draw.");
+    console.log(" - The round ended in a draw.");
   } else if (
     (computerSelection === "Rock" && humanSelection === "Scissors") ||
     (computerSelection === "Scissors" && humanSelection === "Paper") ||
     (computerSelection === "Paper" && humanSelection === "Rock")
   ) {
-    console.log("Computer won this round.");
-    computerScore++;
+    console.log(" - Computer won this round.");
+    ++computerScore;
   } else {
-    console.log("Human won this round.");
-    humanScore++;
+    console.log(" - Human won this round.");
+    ++humanScore;
   }
 }
 
-playRound();
+function playGame() {
+  for (let round = 0; round < 5; round++) {
+    playRound();
+  }
+  console.log(
+    "Computer won " +
+      computerScore +
+      " times and human won " +
+      humanScore +
+      " times."
+  );
+  if (computerScore >= humanScore) console.log(" - Computer won this match.");
+  else console.log(" - Human won this match.");
+}
 
-// Write the logic to play the entire game
+playGame();
