@@ -11,7 +11,7 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-console.log("Computer Chose: " + getComputerChoice());
+//console.log("Computer Chose: " + getComputerChoice());
 
 // Write the logic to get the human choice
 
@@ -32,7 +32,7 @@ function getHumanChoice() {
   return humanChoice;
 }
 
-console.log("Human Chose: " + getHumanChoice());
+//console.log("Computer Chose: " + getHumanChoice());
 
 // Declare the players score variables
 
@@ -41,6 +41,33 @@ let humanScore = 0;
 
 // Write the logic to play a single round
 
-function playRound(humanChoice, computerChoice) {}
+const computerSelection = getComputerChoice();
+const humanSelection = getHumanChoice();
+
+console.log(
+  "Computer chose " +
+    computerSelection +
+    " and human chose " +
+    humanSelection +
+    "."
+);
+
+function playRound() {
+  if (computerSelection === humanSelection) {
+    console.log("The round ended in a draw.");
+  } else if (
+    (computerSelection === "Rock" && humanSelection === "Scissors") ||
+    (computerSelection === "Scissors" && humanSelection === "Paper") ||
+    (computerSelection === "Paper" && humanSelection === "Rock")
+  ) {
+    console.log("Computer won this round.");
+    computerScore++;
+  } else {
+    console.log("Human won this round.");
+    humanScore++;
+  }
+}
+
+playRound();
 
 // Write the logic to play the entire game
