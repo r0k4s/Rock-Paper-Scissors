@@ -1,5 +1,3 @@
-// Write the logic to get the computer choice
-
 function getComputerChoice() {
   let randomNumber = Math.floor(Math.random() * 3);
   const numberToWords = {
@@ -10,8 +8,6 @@ function getComputerChoice() {
   let computerChoice = numberToWords[randomNumber];
   return computerChoice;
 }
-
-// Write the logic to get the human choice
 
 function getHumanChoice() {
   let humanChoice = prompt("What is your choice? Rock, Paper or Scissors.");
@@ -30,12 +26,8 @@ function getHumanChoice() {
   return humanChoice;
 }
 
-//
-
 let computerScore = 0;
 let humanScore = 0;
-
-// Write the logic to play the entire game
 
 function playRound() {
   const computerSelection = getComputerChoice();
